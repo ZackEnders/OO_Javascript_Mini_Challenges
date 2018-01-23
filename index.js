@@ -16,6 +16,17 @@
 // var z = new Multiplier();
 
 
+var Multiplier = {
+	num1: 1,
+	multiply: function(num){
+		return this.num1 *= num
+	},
+	getCurrentValue: function(){
+		return this.num1
+	}
+}
+var z = Multiplier;
+
 
 
 // Implement an object model that allows you to store strings that represent a Photo. 
@@ -24,8 +35,40 @@
 // and access a specific photo by the order it was added.
 // Each Photo should store the photo's file name and the location the photo was taken in as strings.
 // Create instances of each object defined to prove that your object model works.
+function Photo(name, location){
+	this.name = name;
+	this.location = location;
+}
 
 
+function Album (){
+
+	this.photoAlbum = [];
+
+	this.addPhoto = function(x){
+		console.log(x)
+		this.photoAlbum.push(x);
+		console.log(x + ' has been added to your photo gallery!')
+	}
+	this.listAllPhotos = function(){
+		for(var i = 0; i < this.photoAlbum.length; i++){
+		console.log(this.photoAlbum[i].name + ' ' + this.photoAlbum[i].location + ' Here are all of your photos!')
+	}
+}
+	this.access = function(y){
+		return this.photoAlbum[y];
+	}
+}
+var photoAlbum = new Album()
+
+var photo1 = new Photo('Beach', 'Mexico')
+var photo2 = new Photo('Beach', 'Mexico')
+var photo3 = new Photo('Beach', 'Mexico')
+var photo4 = new Photo('Beach', 'Mexico')
+var photo5 = new Photo('Mountains', 'PA')
+var photo6 = new Photo('Mountains', 'PA')
+var photo7 = new Photo('Mountains', 'PA')
+var photo8 = new Photo('Mountains', 'PA')
 
 
 
@@ -49,7 +92,6 @@ function Person(name, age, gender,){
 	this.name = name;
 	this.age = age;
 	this.gender = gender;
-
 }
 
 function Teacher(name, age, gender, subject){
@@ -62,19 +104,37 @@ function Student(name, age, gender, gpa){
 	this.gpa = gpa;
 }
 
-function School(){
-	this.teachers = [];
-	this.students = [];
-	this.addTeacher = function(x){
+// function School(){
+// 	this.teachers = [];
+// 	this.students = [];
+// 	this.addTeacher = function(x){
+// 		this.teachers.push(x)
+// 		console.log('A new teacher has been added.')
+// 	};
+// 	this.addStudent = function(y){
+// 		this.students.push(y)
+// 		console.log('A new student has been added.')
+// 	}
+// }
+
+
+class School{
+	constructor(){
+		this.teachers = [];
+		this.students = [];
+
+	}
+	addTeacher(x){
 		this.teachers.push(x)
 		console.log('A new teacher has been added.')
-	};
-	this.addStudent = function(y){
+	}
+	addStudent(y){
 		this.students.push(y)
 		console.log('A new student has been added.')
 	}
-
 }
+
+var s = new Student()
 
 var jim = new Teacher('Jim', 32, 'Male', 'Math');
 var keith = new Teacher('Keith', 44, 'Male', 'Science');
