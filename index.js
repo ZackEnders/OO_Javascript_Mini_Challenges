@@ -41,6 +41,8 @@ function Photo(name, location){
 }
 
 
+
+
 function Album (){
 
 	this.photoAlbum = [];
